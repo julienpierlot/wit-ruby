@@ -143,6 +143,10 @@ class Wit
     req(logger, @access_token, Net::HTTP::Delete, "/traits/#{URI.encode(trait)}")
   end
 
+  def post_utterances(payload)
+    req(logger, @access_token, Net::HTTP::Post, "/utterances", {}, payload)
+  end
+
   private
 
   def validate_payload(payload)
