@@ -147,6 +147,10 @@ class Wit
     req(logger, @access_token, Net::HTTP::Post, "/utterances", {}, payload)
   end
 
+  def delete_utterances(payload)
+    req(logger, @access_token, Net::HTTP::Delete, "/utterances", {}, payload)
+  end
+
   private
 
   def validate_payload(payload)
