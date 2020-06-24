@@ -181,7 +181,7 @@ class Wit
     Net::HTTP.start(uri.host, uri.port, {:use_ssl => uri.scheme == 'https'}) do |http|
       rsp = http.request(request)
       if rsp.code.to_i != 200
-        raise Error.new("HTTP error code=#{rsp.code}")
+        raise Error.new("HTTP error code=#{rsp.code}. Details=#{rsp.body}")
       end
       json = JSON.parse(rsp.body)
       if json.is_a?(Hash) and json.has_key?('error')
